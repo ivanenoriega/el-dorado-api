@@ -7,6 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/heroku/x/hmetrics/onload"
+	"github.com/ivanenoriega/el-dorado-api/db"
 )
 
 func main() {
@@ -23,7 +24,7 @@ func main() {
 
 	router.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "pong",
+			"message": db.Hello(),
 		})
 	})
 
