@@ -4,7 +4,7 @@ go 1.12
 
 require (
 	github.com/gin-gonic/gin v0.0.0-20150626140855-4cc2de6207f4
-	github.com/go-sql-driver/mysql v1.5.0 // indirect
+	github.com/go-sql-driver/mysql v1.5.0
 	github.com/heroku/go-getting-started v0.0.0-20190906193407-877286762ee2 // indirect
 	github.com/heroku/x v0.0.0-20171004170240-705849e307dd
 )
