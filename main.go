@@ -9,8 +9,10 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/heroku/x/hmetrics/onload"
 	"github.com/ivanenoriega/el-dorado-api/db"
-	m "github.com/ivanenoriega/el-dorado-api/mapper/email"
-	mo "github.com/ivanenoriega/el-dorado-api/model/email"
+	cma "github.com/ivanenoriega/el-dorado-api/mapper/contact"
+	ema "github.com/ivanenoriega/el-dorado-api/mapper/email"
+	cmo "github.com/ivanenoriega/el-dorado-api/model/contact"
+	emo "github.com/ivanenoriega/el-dorado-api/model/email"
 )
 
 func main() {
@@ -30,7 +32,7 @@ func main() {
 	})
 
 	router.POST("/email", func(c *gin.Context) {
-		var data mo.ReqEmail
+		var data emo.ReqEmail
 		con := db.GetConn()
 		if err := c.Bind(&data); err != nil {
 			c.JSON(400, gin.H{"error": "invalid email"})
@@ -45,7 +47,44 @@ func main() {
 			c.JSON(400, gin.H{"error": "malformed email"})
 			return
 		}
-		err := m.Insert(data.Email, con)
+		err := ema.Insert(data.Email, con)
+		if err != nil {
+			panic(err.Error())
+		}
+		c.JSON(200, gin.H{
+			"message": "Success",
+		})
+		defer con.Close()
+	})
+
+	router.POST("/contact", func(c *gin.Context) {
+		var data cmo.ReqContact
+		con := db.GetConn()
+		if err := c.Bind(&data); err != nil {
+			c.JSON(400, gin.H{"error": "invalid email"})
+			return
+		}
+		if data.Name == "" {
+			c.JSON(400, gin.H{"error": "empty name"})
+			return
+		}
+		if data.Email == "" {
+			c.JSON(400, gin.H{"error": "empty email"})
+			return
+		}
+		if data.Phone == "" {
+			c.JSON(400, gin.H{"error": "empty phone"})
+			return
+		}
+		if data.Subject == "" {
+			c.JSON(400, gin.H{"error": "empty subject"})
+			return
+		}
+		if data.Message == "" {
+			c.JSON(400, gin.H{"error": "empty message"})
+			return
+		}
+		err := cma.Insert(data.Name, data.Email, data.Phone, data.Subject, data.Message, con)
 		if err != nil {
 			panic(err.Error())
 		}
