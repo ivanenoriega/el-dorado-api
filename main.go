@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"regexp"
@@ -16,16 +17,19 @@ import (
 )
 
 func main() {
+	fmt.Println("Iniciamos main")
 	port := os.Getenv("PORT")
 
 	if port == "" {
 		log.Fatal("$PORT must be set")
 	}
+	fmt.Println("Definimos el puerto")
 
 	router := gin.New()
 	router.Use(gin.Logger())
 
 	router.GET("/ping", func(c *gin.Context) {
+		fmt.Println("Entro por ping")
 		c.JSON(200, gin.H{
 			"message": "Pong!",
 		})
