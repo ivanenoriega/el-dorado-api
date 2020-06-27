@@ -4,6 +4,8 @@ github.com/gin-gonic/gin v0.0.0-20150626140855-4cc2de6207f4 h1:ufr+93X0/9xTNvObf
 github.com/gin-gonic/gin v0.0.0-20150626140855-4cc2de6207f4/go.mod h1:7cKuhb5qV2ggCFctp2fJQ+ErvciLZrIeoOSOm6mUr7Y=
 github.com/go-sql-driver/mysql v1.5.0 h1:ozyZYNQW3x3HtqT1jira07DN2PArx2v7/mN66gGcHOs=
 github.com/go-sql-driver/mysql v1.5.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
+github.com/heroku/go-getting-started v0.0.0-20190906193407-877286762ee2 h1:Dx5SqCri99/Kh0fOEflo4/UMeHCP2tKb2hTUGAwl/LY=
+github.com/heroku/go-getting-started v0.0.0-20190906193407-877286762ee2/go.mod h1:SNlMHD4JtlngeuYGXol17FSPNiFwVhfm69JsJCvhP3E=
 github.com/heroku/x v0.0.0-20171004170240-705849e307dd h1:zn29UrzyUeQgqxBGXIwQqQJf75IiK4aeCtO5q1V2Vyo=
 github.com/heroku/x v0.0.0-20171004170240-705849e307dd/go.mod h1:opmAyjmIGn9/Y+9Nia6eIaktIXIoMhhFXEFbHLMsX3Y=
 github.com/ivanenoriega/el-dorado-api v0.0.0-20200606233858-681159668195 h1:8zpNtREozm7rPlYahuGVArvVT8spJ5lf5qkKMEvc724=
